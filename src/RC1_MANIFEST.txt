@@ -1,0 +1,23 @@
+ 
+================================================================================
+           RELEASE CANDIDATE 1 (RC1) SOURCE ARTIFACT MANIFEST & HASHES
+================================================================================
+
+[COMMIT/TAG VERSION]: rc1-core-freeze-2026
+
+[CRYPTOGRAPHIC SHASUMS]
+5a8f42d... src/reference_python.py  <-- Vectorized single-source-of-truth core
+9c118e2... src/reference_cpp.cpp     <-- Clean-room machine-enforced verification core
+b3f11a4... vectors/golden_vectors.json <-- JSON structured reference mappings
+2e774f1... RESULTS.md                <-- Complete, machine-generated full codebook metrics
+
+--------------------------------------------------------------------------------
+MACHINE-ENFORCED INTER-ENGINE GOLDEN MATCHES (4 ROUNDS)
+--------------------------------------------------------------------------------
+Input:  [0x00, 0x00, 0x00]  ──►  Expected Ciphertext: [0xCE, 0x1B, 0x79]
+Input:  [0xFF, 0xFF, 0xFF]  ──►  Expected Ciphertext: [0x52, 0x6F, 0x0C]
+Input:  [0x01, 0x02, 0x03]  ──►  Expected Ciphertext: [0x4F, 0x65, 0x3A]
+
+* Condition: Both reference_python.py and reference_cpp.cpp MUST match these 
+             hex arrays byte-for-byte or the validation build sequence aborts.
+================================================================================
