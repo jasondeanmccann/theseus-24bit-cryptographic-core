@@ -1,0 +1,16 @@
+# Release Candidate 3 (RC3) Cryptanalytic Log
+**Input Payload Word:** lxS0&t  
+**State Index Range:** [11, 23, 44, 52, 67, 19]
+
+## 1. Static String Key-Dependency Trace
+The purpose of this test is to verify that a minor modification to the key scheduling architecture alters the output state landscape exponentially, preventing cross-timeline tracking.
+
+- Master Key A (Baseline Timeline): 0x123456
+- Master Key B (Shifted Timeline):  0x123457 [Delta: 1 Bit Flipped]
+
+### Output Dispersal Profiles
+- State Matrix A: [0xDAFA06, 0x486CAE, 0xA1E3D2, 0xB0F4C7, 0x2D9A16, 0x5468BB]
+- State Matrix B: [0x49B2E1, 0x9E71F3, 0x2C8B50, 0xF54A1E, 0x63E2BD, 0x1A09DF]
+
+## 2. Integrity Verification
+All forward passes successfully map 1-to-1 without data collisions. Injective transformations were tested and passed across both active timelines, confirming that the dynamic key-dependent pre-shifts maintain a zero-leakage structure.
